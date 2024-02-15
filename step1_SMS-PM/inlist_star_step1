@@ -38,7 +38,7 @@
 
    relax_mass = .true.
    relax_initial_mass = .true.
-   new_mass = 1d4 !0.999
+   new_mass = 1d3 !0.999
    lg_max_abs_mdot = -100
    !
    relax_mass_scale = .false.
@@ -289,7 +289,7 @@
 
 
    !!! when to stop 
-   star_mass_max_limit = 1.0d4   ! this should be the same as the relaxed mass (new_mass)
+   star_mass_max_limit = 1.0d3   ! this should be the same as the relaxed mass (new_mass)
 
 
 

@@ -50,7 +50,7 @@
 
 !!! when to stop                                                                    | additional stopping criteria set in binary_controls and run_binary_extras.f
    max_model_number = 100000  ! maximum number of models;      common value: -1     | generous maximum
-   max_age = 0.01             ! maximum age in the simulation; common value: 1.4e10 | relaxation shouldn't age the star
+   max_age = 1.0d4            ! maximum age in the simulation; common value: 1.4e10 | relaxation shouldn't age the star
 
 !!! mixing (and convection)
    okay_to_reduce_gradT_excess = .false.  ! enable MLT++;                                                                 common value: .true.        | don't use MLT++
