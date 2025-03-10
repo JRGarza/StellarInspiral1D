@@ -106,7 +106,7 @@
 
             k=k+1
          enddo
-         s% xtra(11) = total_envelope_binding_energy ! In erg
+         !s% xtra(11) = total_envelope_binding_energy ! In erg
 
          CE_mdot = - (mass_to_remove) / dt !In gr/s
 
@@ -119,7 +119,7 @@
             write (*,*)"*", s%dt, s% mass_change_full_off_dt, s% mass_change_full_on_dt
          endif
 
-         s% xtra(7) = CE_mdot
+         s% xtra(7) = CE_mdot !* dt
 
          res = keep_going
 
@@ -161,10 +161,29 @@
                   is_bound = .true.
                endif
 
-               if (s% x_logical_ctrl(4) .and. (s% v(k)/s% csound(k) .gt. 1.0d0)) is_bound = .false.
 
-               !In order to remove material, the shell should have energetically unbound AND supersonic
-               if (s% x_logical_ctrl(5) .and. (s% v(k)/s% csound(k) .lt. 1.0d0)) is_bound = .true.
+               if (s% x_logical_ctrl(4) ) then
+                  if (v_rad/s% csound(k) .ge. 1.0d0) then
+                     is_bound = .false.
+                  else
+                     is_bound = .true.
+                  endif
+                  
+               elseif (s% x_logical_ctrl(10)) then
+                  if (v_rad/(sqrt(2*s% cgrav(k)*s% m(k)/(s% r(k)))) .ge. 1.0d0) then
+                     is_bound = .false.
+                  else
+                     is_bound = .true.
+                  endif
+
+               elseif (s% x_logical_ctrl(5)) then
+                  if ((v_rad/s% csound(k) .ge. 1.0d0) .and. (v_rad/(sqrt(2*s% cgrav(k)*s% m(k)/(s% r(k)))) .ge. 1.0d0)) then 
+                     is_bound = .false.
+                  else
+                     is_bound = .true.
+                  endif
+               endif 
+
 
             end function is_bound
 
