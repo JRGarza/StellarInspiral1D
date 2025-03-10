@@ -1,7 +1,7 @@
 &star_job
 
-   history_columns_file = '../../inlists/history_columns_common.list'  ! a list of columns to save in the history files; common value: '' | read common list
-   profile_columns_file = '../../inlists/profile_columns_common.list'  ! a list of columns to save in the profile files; common value: '' | read common list
+   history_columns_file = '../inlists/history_columns_common.list'  ! a list of columns to save in the history files; common value: '' | read common list
+   profile_columns_file = '../inlists/profile_columns_common.list'  ! a list of columns to save in the profile files; common value: '' | read common list
 
 
    create_pre_main_sequence_model = .false.
