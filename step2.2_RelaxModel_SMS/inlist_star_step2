@@ -6,7 +6,7 @@
 
 !!! starting model
    load_saved_model = .true.                          ! enable to start from a model instead of from ZAMS; common value: .false.     | use model from other step
-   load_model_filename = '../step2.2_RelaxModel_SMS/model.mod'  ! load the model specified here as initial model;    common value: 'undefined' | use final model from previous step
+   load_model_filename = '../step2.1_RelaxModel_SMS/model.mod'  ! load the model specified here as initial model;    common value: 'undefined' | use final model from previous step
 
    write_profile_when_terminate = .true.                       ! enable to write profiles on termination; common value: .false. | keep a final profile
    filename_for_profile_when_terminate = 'final_profile.data'  ! name of the final profile file;          common value: ''      | 
